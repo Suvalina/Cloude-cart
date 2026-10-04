@@ -1,0 +1,312 @@
+
+@import "tailwindcss";
+
+/* =========================================================
+   CLOUD CART - GLOBAL CSS
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #f8fafc;
+  color: #1f2937;
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* =========================================================
+   INPUT
+   ========================================================= */
+
+.input-style {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 0.75rem;
+  padding: 0.75rem 0.875rem;
+  background: #ffffff;
+  color: #1f2937;
+  outline: none;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.input-style:hover {
+  border-color: #9ca3af;
+}
+
+.input-style:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.12);
+}
+
+.input-style::placeholder {
+  color: #9ca3af;
+}
+
+textarea.input-style {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* =========================================================
+   MODAL BACKGROUND
+   ========================================================= */
+
+.modal-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(15, 23, 42, 0.68);
+  backdrop-filter: blur(5px);
+  overflow-y: auto;
+}
+
+/* =========================================================
+   MODAL CARD
+   ========================================================= */
+
+.modal-card {
+  width: 100%;
+  max-width: 32rem;
+  margin: auto;
+  border-radius: 1rem;
+  background: #ffffff;
+  padding: 1.5rem;
+  box-shadow:
+    0 25px 50px -12px rgba(0, 0, 0, 0.25),
+    0 10px 20px rgba(0, 0, 0, 0.08);
+  animation: modalOpen 0.2s ease-out;
+}
+
+@keyframes modalOpen {
+  from {
+    opacity: 0;
+    transform: translateY(15px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* =========================================================
+   DRAWER BACKGROUND
+   ========================================================= */
+
+.drawer-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(2px);
+}
+
+/* =========================================================
+   DRAWER
+   ========================================================= */
+
+.drawer {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  width: min(100%, 460px);
+  height: 100%;
+
+  background: #ffffff;
+
+  box-shadow:
+    -20px 0 50px rgba(0, 0, 0, 0.15);
+
+  animation: drawerOpen 0.25s ease-out;
+}
+
+@keyframes drawerOpen {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* =========================================================
+   PRODUCT IMAGE
+   ========================================================= */
+
+.product-image {
+  transition:
+    transform 0.35s ease,
+    filter 0.35s ease;
+}
+
+.product-image:hover {
+  transform: scale(1.04);
+}
+
+/* =========================================================
+   PRODUCT CARD
+   ========================================================= */
+
+.product-card {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 15px 35px rgba(15, 23, 42, 0.1);
+}
+
+/* =========================================================
+   BUTTON EFFECT
+   ========================================================= */
+
+button {
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+button:not(:disabled):active {
+  transform: scale(0.98);
+}
+
+/* =========================================================
+   LINE CLAMP
+   ========================================================= */
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c7d2fe;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #818cf8;
+}
+
+/* =========================================================
+   SELECTION
+   ========================================================= */
+
+::selection {
+  background: #c7d2fe;
+  color: #312e81;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 640px) {
+  .modal-bg {
+    align-items: flex-start;
+    padding: 0.75rem;
+  }
+
+  .modal-card {
+    margin-top: 1rem;
+    padding: 1.25rem;
+    border-radius: 0.875rem;
+  }
+
+  .drawer {
+    width: 100%;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
